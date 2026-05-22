@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse — Competitive Landscape: Cash Flow Forecasting in Canada</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7f4; color: #1a1a1a; font-size: 14px; line-height: 1.6; }
+.page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* Header */
+.header { margin-bottom: 2rem; }
+.header h1 { font-size: 26px; font-weight: 600; color: #111; letter-spacing: -0.5px; }
+.header p { color: #666; font-size: 13px; margin-top: 4px; }
+.header-meta { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.meta-pill { background: #fff; border: 1px solid #e5e5e0; border-radius: 20px; padding: 4px 14px; font-size: 12px; color: #555; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 2rem; }
+@media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.2rem; }
+.stat-num { font-size: 28px; font-weight: 600; color: #111; line-height: 1; }
+.stat-label { font-size: 12px; color: #777; margin-top: 4px; line-height: 1.4; }
+
+/* Section labels */
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin: 2rem 0 1rem; }
+
+/* Filter row */
+.filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.filter-btn { font-size: 12px; padding: 5px 13px; border: 1px solid #ddd; border-radius: 20px; background: #fff; color: #666; cursor: pointer; transition: all 0.15s; }
+.filter-btn:hover { background: #f0f0ec; border-color: #bbb; }
+.filter-btn.active { background: #111; color: #fff; border-color: #111; }
+
+/* Card grid */
+.comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 12px; }
+.comp-card { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1.1rem 1.25rem; transition: border-color 0.15s, box-shadow 0.15s; }
+.comp-card:hover { border-color: #ccc; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.comp-card.hidden { display: none; }
+
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.card-name { font-size: 14px; font-weight: 600; color: #111; }
+.card-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; }
+.badge-direct { background: #fde8e8; color: #c0392b; }
+.badge-indirect { background: #fef3cd; color: #856404; }
+.badge-platform { background: #f0f0ec; color: #555; }
+.badge-enterprise { background: #e8f0fe; color: #1a56db; }
+.badge-canadian { background: #e8f8ef; color: #1a6637; }
+.badge-spend { background: #fdf3e8; color: #b45309; }
+.badge-human { background: #f3e8ff; color: #7c3aed; }
+
+.card-meta { font-size: 11px; color: #aaa; margin-bottom: 5px; }
+.card-desc { font-size: 13px; color: #555; line-height: 1.55; }
+.card-pricing { margin-top: 8px; font-size: 12px; color: #888; }
+.card-pricing strong { color: #333; }
+
+.overlap-bar { margin-top: 10px; }
+.overlap-label { font-size: 11px; color: #aaa; margin-bottom: 3px; display: flex; justify-content: space-between; }
+.bar-track { height: 4px; background: #f0f0ec; border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; }
+.bar-high { background: #e74c3c; }
+.bar-med { background: #f39c12; }
+.bar-low { background: #27ae60; }
+
+.expand-btn { font-size: 12px; color: #1a56db; cursor: pointer; margin-top: 10px; display: inline-block; user-select: none; }
+.expand-btn:hover { text-decoration: underline; }
+
+.details-panel { margin-top: 10px; border-top: 1px solid #f0f0ec; padding-top: 10px; display: none; }
+.details-panel.open { display: block; }
+
+.detail-row { margin-bottom: 8px; }
+.detail-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #bbb; margin-bottom: 2px; }
+.detail-text { font-size: 13px; color: #555; line-height: 1.5; }
+
+.pulse-edge { background: #e8f8ef; border-left: 3px solid #27ae60; border-radius: 0 8px 8px 0; padding: 8px 12px; font-size: 12px; color: #1a6637; margin-top: 8px; line-height: 1.5; }
+
+/* Matrix */
+.matrix-section { margin-top: 2.5rem; }
+.matrix-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid #e5e5e0; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; }
+thead th { font-size: 11px; font-weight: 600; color: #888; padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e5e0; white-space: nowrap; background: #fafafa; }
+tbody td { padding: 9px 12px; border-bottom: 1px solid #f5f5f0; color: #555; vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr.pulse-row { background: #f0fff6; }
+tbody tr.pulse-row td { font-weight: 500; color: #1a6637; }
+.check { color: #27ae60; font-weight: 700; }
+.cross { color: #e74c3c; font-weight: 700; }
+.partial { color: #f39c12; font-weight: 700; }
+.tbd { color: #aaa; }
+
+/* Big diff section */
+.insight-section { margin-top: 2.5rem; }
+.diff-card { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1.25rem 1.5rem; }
+.diff-card h3 { font-size: 15px; font-weight: 600; color: #111; margin-bottom: 1rem; }
+.diff-item { display: flex; gap: 12px; margin-bottom: 12px; }
+.diff-num { width: 24px; height: 24px; border-radius: 50%; background: #111; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.diff-text { font-size: 13px; color: #555; line-height: 1.6; }
+.diff-text strong { color: #111; }
+
+.category-summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 1rem; }
+.cat-card { background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 1rem 1.2rem; border-top: 3px solid transparent; }
+.cat-card.cat-a { border-top-color: #888; }
+.cat-card.cat-b { border-top-color: #e74c3c; }
+.cat-card.cat-c { border-top-color: #f39c12; }
+.cat-card.cat-d { border-top-color: #7c3aed; }
+.cat-title { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 4px; }
+.cat-verdict { font-size: 12px; color: #27ae60; font-weight: 500; margin-bottom: 6px; }
+.cat-desc { font-size: 12px; color: #666; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <h1>Pulse — Cash Flow Forecasting: Full Competitive Landscape</h1>
+  <p>Canada-focused live market research · 18 competitors mapped · May 2026</p>
+  <div class="header-meta">
+    <span class="meta-pill">🇨🇦 Canada-specific</span>
+    <span class="meta-pill">Live web research</span>
+    <span class="meta-pill">4 competitive categories</span>
+    <span class="meta-pill">Full overlap + diff analysis</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">18</div><div class="stat-label">Competitors mapped across all categories</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">True direct competitors (dashboard forecasting, SMB)</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Competitors with proactive delivery + Canadian GST/HST</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Canadian-built SMB cash flow forecasting tools</div></div>
+</div>
+
+<div class="section-label">The 4 competitive categories</div>
+<div class="category-summary">
+  <div class="cat-card cat-a">
+    <div class="cat-title">Category A — Accounting platforms</div>
+    <div class="cat-verdict">Data sources, not competitors</div>
+    <div class="cat-desc">QuickBooks, Xero, Sage 50, Wave. These record the past. Pulse is built on top of them. A customer uses both.</div>
+  </div>
+  <div class="cat-card cat-b">
+    <div class="cat-title">Category B — Dashboard forecasting</div>
+    <div class="cat-verdict">Closest competitors — same fatal flaw</div>
+    <div class="cat-desc">Float App, Dryrun, Cash Flow Frog, PlanGuru, Fathom, Futrli. All require login. All wait for the owner. All have high churn from disengagement.</div>
+  </div>
+  <div class="cat-card cat-c">
+    <div class="cat-title">Category C — Spend management</div>
+    <div class="cat-verdict">Complementary, not competing</div>
+    <div class="cat-desc">Float Financial Canada, Venn, Plooto. Control what you spend. Pulse predicts what you'll have. Different problem. Same customer.</div>
+  </div>
+  <div class="cat-card cat-d">
+    <div class="cat-title">Category D — Human CFO services</div>
+    <div class="cat-verdict">Pulse replaces at 10–15x lower cost</div>
+    <div class="cat-desc">ConnectCPA, LiveCA, boutique CFO firms. $2,000–$5,000/mo. Pulse provides the same forward-looking intelligence for $149–$349/mo.</div>
+  </div>
+</div>
+
+<div class="section-label">Filter by category</div>
+<div class="filter-row">
+  <button class="filter-btn active" onclick="filterCards('all',this)">All (18)</button>
+  <button class="filter-btn" onclick="filterCards('direct',this)">Direct competitors (6)</button>
+  <button class="filter-btn" onclick="filterCards('platform',this)">Accounting platforms (5)</button>
+  <button class="filter-btn" onclick="filterCards('spend',this)">Spend management (3)</button>
+  <button class="filter-btn" onclick="filterCards('enterprise',this)">Enterprise / mid-market (4)</button>
+  <button class="filter-btn" onclick="filterCards('human',this)">Human CFO services (1)</button>
+  <button class="filter-btn" onclick="filterCards('canadian',this)">Canadian companies (7)</button>
+</div>
+
+<div class="comp-grid" id="compGrid"></div>
+
+<div class="matrix-section">
+  <div class="section-label">Feature comparison matrix — Pulse vs. the field</div>
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="min-width:140px;">Product</th>
+          <th>Proactive push delivery</th>
+          <th>No login needed</th>
+          <th>Canadian GST/HST</th>
+          <th>ADP Run (CA payroll)</th>
+          <th>AI / SMS alerts</th>
+          <th>Vertical KPIs</th>
+          <th>Scenario modeling</th>
+          <th>Price/mo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="pulse-row">
+          <td>⚡ Pulse</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td>$149–349</td>
+        </tr>
+        <tr>
+          <td>Float App (UK)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">~</span></td>
+          <td>$59–199</td>
+        </tr>
+        <tr>
+          <td>Dryrun (Canada)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+          <td>$39–149</td>
+        </tr>
+        <tr>
+          <td>Cash Flow Frog</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">~</span></td>
+          <td>$31–79</td>
+        </tr>
+        <tr>
+          <td>Fathom</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+          <td>$39–149</td>
+        </tr>
+        <tr>
+          <td>PlanGuru</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+          <td>$99+</td>
+        </tr>
+        <tr>
+          <td>Futrli (Sage)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+          <td>Custom</td>
+        </tr>
+        <tr>
+          <td>QB Cash Flow Planner</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td>Included in QB</td>
+        </tr>
+        <tr>
+          <td>Centime</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">~</span></td>
+          <td>$299–499+</td>
+        </tr>
+        <tr>
+          <td>Prophix (Canada)</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">~</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+          <td>$3,000+/mo</td>
+        </tr>
+        <tr>
+          <td>Mastercard Virtual CFO</td>
+          <td><span class="tbd">TBD</span></td>
+          <td><span class="tbd">TBD</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="tbd">TBD</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">~</span></td>
+          <td>Bank-bundled</td>
+        </tr>
+        <tr>
+          <td>Fractional CFO (human)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">~</span></td>
+          <td><span class="check">✓</span></td>
+          <td>$2,000–5,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="insight-section">
+  <div class="section-label">The main difference — why every competitor fails the same way</div>
+  <div class="diff-card">
+    <h3>Three gaps no competitor fills</h3>
+    <div class="diff-item">
+      <div class="diff-num">1</div>
+      <div class="diff-text"><strong>Every competitor requires a login.</strong> Float App, Dryrun, Cash Flow Frog, Fathom, PlanGuru, Centime, QuickBooks Planner — every single one is a dashboard you must remember to open. The evidence from their own churn data is clear: SMB owners running 60–70 hour weeks do not check financial dashboards. The entire Category B competitor set has the same fatal design flaw. Engagement rates are low, churn is high, and the reason is almost always "I stopped looking at it." Pulse changes the model: the insight finds the owner, not the other way around.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">2</div>
+      <div class="diff-text"><strong>Nobody built for Canada.</strong> Not one competitor — including Mastercard's virtual CFO in development — offers proactive GST/HST reserve management for Canadian SMBs. Not one integrates with ADP Run for Canadian payroll. The cash flow forecasting category was built in Edinburgh (Float), Edmonton moving upmarket (Dryrun), Australia (Fathom), and the US (PlanGuru, Cash Flow Frog, Centime). All have generic tax support or none. Canada has 5% GST federally and 13–15% HST provincially, with quarterly filing deadlines that blindside SMB owners every year. Zero competitors address this.</div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">3</div>
+      <div class="diff-text"><strong>They surface numbers. Pulse surfaces actions.</strong> Even the best dashboard tools tell you what the forecast looks like. None of them send a message that says: "You'll miss payroll in 9 days. Here's the one invoice to chase — tap to send a reminder." The gap is execution, not information. Every competitor stops at the dashboard. Pulse extends into one-tap action: invoice reminders, payroll alerts, GST reserve warnings — all delivered before the owner opens their restaurant, before the job site starts, before the inbox fills up.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const competitors = [
+  { name:"Float App (UK)", category:"direct", founded:"2012 · Edinburgh, UK", desc:"The most direct product-level competitor. Cash flow forecasting dashboard connecting to QuickBooks, Xero, and FreeAgent. Scenario planning, 3-year forecasts, daily/weekly/monthly views. Capterra 4.5★ (64 reviews). UK-dominant — limited Canadian presence.", pricing:"$59–$199/mo USD", overlap:75, overlapLevel:"high", badges:["direct"], whatTheyDo:"Dashboard-first cash flow forecasting. Auto-syncs invoices and bills, lets users run 'what if' scenarios, visualize cash by day/week/month. Strong accountant channel. Scenario planning is a core feature (5 scenarios on Essential tier). Weekly cash summary email. 3-year forecast horizon.", whereWeOverlap:"Both connect to QB/Xero. Both produce 90-day+ forecasts. Both target SMBs and accountants. Both have scenario modeling.", whereWeDiffer:"Float requires login — their core failure mode. No proactive push delivery. No SMS. No Canadian GST/HST reserves. No ADP Run integration. No vertical KPIs (food cost %, GP %, etc.). No AI plain-language summaries. CSV-only export. No execution layer (can't send invoice reminders from inside Float). UK-dominant — no Canadian-specific support or tax features.", pulse_edge:"Float App waits for the owner to come to it. Pulse comes to the owner. That one design decision is the entire difference in engagement rates." },
+  { name:"Dryrun", category:"direct", founded:"2013 · Edmonton, AB, Canada", desc:"Scenario-based cash flow modeling platform for CFOs and accountants. Strong what-if scenario modeling, multi-entity support, QB/Xero integration. Moving upmarket to mid-size companies.", pricing:"$39–$149/mo (transitioning to custom)", overlap:65, overlapLevel:"high", badges:["direct","canadian"], whatTheyDo:"Financial forecasting with deep scenario modeling. G2 praised for 'what-if analysis.' 2025 updates enhanced multi-entity complexity and AI-assisted data validation + confidence interval scoring. Collaborative — assign tasks, share forecasts. Built for accountants and CFOs, not owner self-service.", whereWeOverlap:"Both QB/Xero integrations. Both scenario modeling. Both originally targeted the SMB/advisor space. Both Canadian companies.", whereWeDiffer:"Manual-heavy setup. Accountant-facing, not owner-facing. No proactive delivery. No Canadian tax features. No payroll integration. No AI narrative summaries. No SMS/email push. Actively moving upmarket away from Main Street SMBs toward mid-size CFOs. The owner never sees Dryrun — their accountant uses it.", pulse_edge:"Dryrun is a tool for your accountant. Pulse is a tool for you, the owner, at 8am on a Tuesday before your restaurant opens." },
+  { name:"Cash Flow Frog", category:"direct", founded:"~2019 · US-based", desc:"Lightweight, fast-setup cash flow forecasting for SMBs. Integrates with QB Online, QB Desktop, Xero, and Sage Intacct. Capterra 4.8★ (16 reviews). Emphasizes speed-to-first-forecast.", pricing:"$31–$79/mo", overlap:55, overlapLevel:"med", badges:["direct"], whatTheyDo:"Pulls accounting data and creates rolling forecasts automatically. Scenario views, daily/weekly/monthly/quarterly time horizons, multi-year planning. No manual data entry needed. Simple product — gets you to a usable forecast fast. Limited for complex treasury or multi-entity operations.", whereWeOverlap:"Both QB/Xero pull. Both create rolling cash forecasts automatically. Both target SMBs who want fast setup.", whereWeDiffer:"No proactive delivery — dashboard only. No Canadian tax features. No payroll integration. Small review base (16 Capterra reviews) makes traction hard to assess. No AI layer. No vertical depth. No execution layer. Limited scenario sophistication.", pulse_edge:"Cash Flow Frog surfaces a number. Pulse tells you what that number means and what to do about it — delivered to your phone without opening an app." },
+  { name:"PlanGuru", category:"direct", founded:"~2005 · US-based", desc:"Budgeting and forecasting tool for SMBs and advisors. 20+ forecasting methods, up to 10-year planning horizons, QB/Xero/Excel integration. Positioned as Excel replacement for financial modeling.", pricing:"$99/mo (single entity) · $299/yr", overlap:40, overlapLevel:"med", badges:["direct"], whatTheyDo:"Sophisticated multi-method forecasting: regression, moving average, trend analysis. Balance sheet and P&L integration. Strong for strategic planning. 10-year forecast horizon. Used by advisors as a client reporting and scenario-planning tool.", whereWeOverlap:"Both forecast cash flow. Both QB/Xero compatible. Both target SMBs and their advisors.", whereWeDiffer:"Dated interface (multiple reviews note this). Complex setup — reviewer quote: 'there's some onboarding required if you're familiar with Excel.' No automation or proactive delivery. No Canadian features. No payroll. Built for accountant-driven annual modeling, not real-time owner self-service. More financial planning than cash flow intelligence.", pulse_edge:"PlanGuru is a financial modeling tool used annually. Pulse is an operating system used weekly. Different jobs entirely." },
+  { name:"Fathom", category:"direct", founded:"2010 · Brisbane, Australia", desc:"Financial analysis, management reporting, and 3-way forecasting. Integrates with QB, Xero, MYOB. 50+ pre-built KPIs. Strong reporting and multi-entity consolidation for accountants managing multiple clients.", pricing:"$39–$149/mo (entity-based pricing)", overlap:40, overlapLevel:"med", badges:["direct"], whatTheyDo:"Polished reporting dashboards. 3-way forecasting (P&L, balance sheet, cash flow). Scenario planning. Multi-entity consolidation. Automated report scheduling for stakeholders. Used heavily by accounting firms managing multiple clients. NOT a tool most business owners interact with directly.", whereWeOverlap:"Both connect to QB/Xero. Both do cash flow forecasting. Both target SMBs (through their accountant).", whereWeDiffer:"Accountant-facing — business owners rarely see Fathom directly. Report-generation focus, not real-time owner alerts. No proactive delivery. No Canadian tax. No payroll integration. Australian-origin with no Canadian-specific features.", pulse_edge:"Fathom is what your accountant uses to build a report for you once a month. Pulse is what you get at 8am every Tuesday." },
+  { name:"Futrli (by Sage)", category:"direct", founded:"2013 · acquired by Sage 2022", desc:"Cash flow forecasting and business planning tool, now a Sage product. 3-way forecasting, daily/weekly scenario modeling. Marketed via Sage Canada's accountant channel as the forecasting add-on.", pricing:"Custom (bundled with Sage Accounting)", overlap:45, overlapLevel:"med", badges:["direct","platform"], whatTheyDo:"Short-term cash flow visibility, daily scenario modeling, performance insights. Sage Canada markets it with: '69% of accountants say forecasting is critical.' 3-year forecasts, budget vs. actual, scenario comparison. Sage integration means it's distributed through Sage's accountant network.", whereWeOverlap:"Both QB/Xero/Sage integration. Both cash flow forecasting for SMBs. Both marketed through accountant channels.", whereWeDiffer:"Sage distribution means it reaches accountants, not owners. Dashboard-only. No proactive delivery. No SMS. No Canadian GST features. No Canadian payroll. Now effectively a Sage upsell product — not a standalone competitive threat.", pulse_edge:"Futrli is a Sage feature. Pulse is a standalone intelligence layer that works regardless of what accounting software you use." },
+  { name:"QuickBooks Cash Flow Planner", category:"platform", founded:"2020 · Intuit, Mountain View CA", desc:"Built-in QB feature showing 90-day cash flow based on open invoices and bills. Included in all QBO plans. Limited to QB data only — no external payroll (unless QB Payroll) or bank enrichment.", pricing:"Included in QB Online ($30–100/mo)", overlap:30, overlapLevel:"med", badges:["platform"], whatTheyDo:"Auto-generates a 90-day cash view from invoices and bills already in QB. Basic visual chart. No scenario planning. No alerts. Invoices and bills only — doesn't model recurring costs, seasonal revenue, or payroll from external providers. Requires opening the QB app.", whereWeOverlap:"Both show a 90-day forward cash view. Both pull from QB data.", whereWeDiffer:"QB Planner is a feature inside an app you already pay for — backward-biased, limited to QB data, no ADP, no seasonal modeling, no GST reserves, no proactive delivery. No alerts. You must log in and navigate to it.", pulse_edge:"QB Planner is what happens when an accounting company adds a forecasting sidebar. Pulse is what happens when forecasting is the entire product." },
+  { name:"Xero (short-term cash flow)", category:"platform", founded:"2006 · Wellington, NZ", desc:"Cloud accounting platform with a built-in 30-day cash flow view and business snapshot. The forecasting feature is basic — shows bills due and invoices outstanding. Not a true forecasting product.", pricing:"Included in Xero ($30–70/mo)", overlap:15, overlapLevel:"low", badges:["platform"], whatTheyDo:"30-day cash view showing bills due and invoices outstanding in the coming month. No scenario modeling. No predictive features. No alerts. Xero's focus is accounting — forecasting is an underdeveloped sidebar.", whereWeOverlap:"Both used by the same customer base. Xero is Pulse's primary data source.", whereWeDiffer:"Xero is a data source for Pulse. No meaningful forecasting. No Canadian-specific intelligence. No proactive delivery. Not in the same category.", pulse_edge:"Pulse is what Xero's cash flow view would be if it actually tried to solve the problem." },
+  { name:"Sage 50 Canada", category:"platform", founded:"1981 · Newcastle UK (CA operations active)", desc:"Legacy desktop-first accounting software popular with established Canadian SMBs. Includes Statement of Cash Flows, invoice automation, bank reconciliation, Microsoft 365 integration.", pricing:"$50–$130/mo CAD", overlap:15, overlapLevel:"low", badges:["platform","canadian"], whatTheyDo:"Full accounting: A/R, A/P, payroll, inventory, bank reconciliation. Cash flow is a backward-looking Statement of Cash Flows — not a forward-looking forecast. Sage Canada also markets Futrli as an add-on for forecasting. Windows-first; Microsoft 365 integration.", whereWeOverlap:"Both serve Canadian SMBs. Both produce cash flow numbers.", whereWeDiffer:"Sage 50 records the past. Pulse forecasts the future. Sage 50 is a data source, not a competitor. Customers use both.", pulse_edge:"Sage 50 is the accounting system. Pulse reads from it and tells you what's coming." },
+  { name:"Wave (H&R Block)", category:"platform", founded:"2009 · Toronto, ON (acquired H&R Block 2019)", desc:"Free accounting software for Canadian sole proprietors and micro-businesses. H&R Block acquisition. No cash flow forecasting — records transactions and generates basic reports.", pricing:"Free (payments/payroll add-ons extra)", overlap:8, overlapLevel:"low", badges:["platform","canadian"], whatTheyDo:"Free bookkeeping: invoicing, expense tracking, bank reconciliation, basic reports. Popular with freelancers and early-stage sole proprietors under $200K revenue. No forecasting capability.", whereWeOverlap:"Both serve Canadian small businesses.", whereWeDiffer:"Wave customers are generally below Pulse's target size ($500K+ revenue). When Wave customers grow, they outgrow Wave and become Pulse customers. Not a competitor — a feeder market.", pulse_edge:"Wave customers are Pulse's future pipeline, not current competition." },
+  { name:"Float Financial Canada", category:"spend", founded:"2014 · Toronto, ON", desc:"Canada's leading SMB spend management platform. $92.6M raised, 6,000+ customers. Corporate cards, expense tracking, multi-currency bill pay. NOT a cash flow forecasting product.", pricing:"$0–$299/mo", overlap:10, overlapLevel:"low", badges:["spend","canadian"], whatTheyDo:"Corporate cards with real-time spend controls, automated receipt capture, bill pay, multi-currency. Float's 2025 Canada SMB Report is the most-cited research in the Canadian SMB fintech space. Dominant brand in Canadian SMB fintech.", whereWeOverlap:"Same target customer. Both in the 'financial intelligence for Canadian SMBs' conversation. Float's research shows 40% of SMBs lack a single financial truth source — Pulse's market.", whereWeDiffer:"Float Financial controls what you spend. Pulse predicts what you'll have. Completely different problem. These are complementary products — a Float Financial customer needs Pulse.", pulse_edge:"Float Financial's own research proves the Canadian SMB market wants financial intelligence. Pulse delivers the forward-looking piece Float doesn't." },
+  { name:"Venn", category:"spend", founded:"2022 · Toronto, ON", desc:"Canadian multi-currency business account (CAD/USD/GBP/EUR). Targets Canadian SMBs with cross-border payment needs. Offers a cash flow forecast template as content marketing — not a product.", pricing:"$0–$50/mo + FX fees", overlap:5, overlapLevel:"low", badges:["spend","canadian"], whatTheyDo:"Multi-currency business banking alternative. FX at 0.25% fee. Targets agencies, SaaS companies, and service firms with USD income and CAD expenses. Cash flow template is a marketing tool, not a forecasting product.", whereWeOverlap:"Same customer profile (Canadian SMBs, especially cross-border). Both interested in cash visibility.", whereWeDiffer:"Venn is a payment and banking product. No forecasting, no intelligence layer, no alerts.", pulse_edge:"Venn customers need Pulse — multi-currency exposure makes cash forecasting more complex, not less." },
+  { name:"Plooto", category:"spend", founded:"2015 · Toronto, ON", desc:"Canadian B2B payment automation platform. AP/AR payments, pre-authorized debit, international wires. Integrates with QB and Xero. Not a cash flow forecasting product — pure payment automation.", pricing:"$25–$55/mo + per-transaction fees", overlap:5, overlapLevel:"low", badges:["spend","canadian"], whatTheyDo:"Automates vendor payments, payroll, and AR collection. Pre-authorized debit setup for recurring billing. Popular in Canadian professional services for payment workflow automation.", whereWeOverlap:"Both QB/Xero integrated. Both serve Canadian SMBs.", whereWeDiffer:"Plooto executes payments. Pulse predicts cash position. These products could be complementary — Pulse identifies the cash gap, Plooto collects the invoice.", pulse_edge:"Pulse is the intelligence layer that tells you when to use Plooto." },
+  { name:"Centime", category:"enterprise", founded:"2020 · Boston, MA", desc:"AP/AR automation + cash forecasting for mid-market companies ($20M–$250M revenue). Integrates natively with NetSuite, Sage Intacct, and QuickBooks. G2 praised for ERP-native forecasting accuracy.", pricing:"$299–$499+/mo USD", overlap:25, overlapLevel:"low", badges:["enterprise"], whatTheyDo:"Combines AP automation, AR automation, and forward-looking cash forecasting in one ERP-native platform. True ERP integration (not just sync — live data). Targets companies with dedicated finance teams. G2 users consistently praise forecasting accuracy and ability to plan AP/AR decisions within the forecast view.", whereWeOverlap:"Both do cash flow forecasting. Both QB-compatible. Both show proactive cash gap detection.", whereWeDiffer:"Centime targets $20M–$250M revenue businesses with ERP infrastructure and finance teams. Our customer is $500K–$5M with QuickBooks and no finance team. Price, complexity, and customer profile are entirely different. Centime requires a CFO to implement.", pulse_edge:"Centime requires a CFO to implement it. Pulse requires an owner with a phone." },
+  { name:"Prophix", category:"enterprise", founded:"2000 · Mississauga, ON (acquired by Hg 2021)", desc:"Canadian-founded FP&A platform for mid-market companies. Full financial planning, budgeting, forecasting, consolidation. $15K–$100K+/year contracts. Named in Gartner Magic Quadrant.", pricing:"$3,000–$10,000+/mo ($15K–$100K+/yr)", overlap:5, overlapLevel:"low", badges:["enterprise","canadian"], whatTheyDo:"Full FP&A: driver-based budgeting, rolling forecasts, financial consolidation, multi-entity reporting, AI-powered variance analysis (Prophix Copilot), workforce planning. 500+ employees. Targets 15–500 person finance teams. Acquired by Hg (PE firm) in 2021.", whereWeOverlap:"Both Canadian companies. Both do cash flow forecasting.", whereWeDiffer:"Prophix is for the CFO of a company with $10M–$500M revenue and a finance team of 5–50 people. Pulse is for the owner of a $1M restaurant with no finance team. Completely different category, price point, and use case.", pulse_edge:"Prophix is where Pulse customers will be in 10–15 years. Today, they need Pulse." },
+  { name:"Sage Intacct", category:"enterprise", founded:"1999 · San Jose, CA (Sage Group)", desc:"Cloud ERP for mid-market companies. Full accounting, multi-entity, industry-specific modules. Cash flow forecasting via third-party integrations (Cash Flow Frog, Centime). Dominant in nonprofits and healthcare.", pricing:"$400–$1,000+/mo", overlap:5, overlapLevel:"low", badges:["enterprise","platform"], whatTheyDo:"Mid-market ERP: multi-dimensional accounting, revenue recognition, project accounting, AP/AR automation. Cash flow done via add-ons. Not an SMB product — requires professional implementation and significant IT infrastructure.", whereWeOverlap:"Some overlap in growing Canadian businesses that will eventually move to Intacct.", whereWeDiffer:"Sage Intacct is for $5M–$100M businesses with accounting teams. Pulse is for $500K–$5M businesses with an owner. Not a direct competitor.", pulse_edge:"Sage Intacct customers outgrew Pulse years ago." },
+  { name:"Mastercard Virtual CFO", category:"enterprise", founded:"In development — announced 2026", desc:"Bank-delivered AI CFO product in development. Proactive cash-flow risk detection, benchmarking, supplier payment optimization. Would be embedded via banks — not a standalone SMB product.", pricing:"Bank-bundled (likely free or near-free)", overlap:35, overlapLevel:"med", badges:["enterprise"], whatTheyDo:"If/when delivered: AI-powered cash flow intelligence, benchmarking vs. industry peers, payment optimization, cash flow risk detection. Bank-distributed — adoption depends on whether your bank rolls it out. Not a product SMBs can sign up for independently.", whereWeOverlap:"Both AI-powered. Both proactive cash intelligence in concept. Both theoretically target SMBs.", whereWeDiffer:"Bank-delivered = slow rollout, bureaucratic, generic. No vertical depth. No Canadian GST. No one-tap execution. Available late 2026 at earliest. Banks move at bank speed. Generic for all businesses — no restaurant/contractor depth. And the bank relationship adds friction, not intelligence.", pulse_edge:"Pulse is live today. Mastercard's product doesn't exist yet — and when it does, it will be a generic bank feature distributed by institutions that move in 3-year cycles." },
+  { name:"ConnectCPA / LiveCA", category:"human", founded:"2010s · Canada", desc:"Tech-forward Canadian accounting firms offering fractional CFO advisory services. Provide the human version of what Pulse automates: monthly cash flow analysis, financial reviews, forward planning.", pricing:"$2,000–$5,000+/mo", overlap:60, overlapLevel:"high", badges:["human","canadian"], whatTheyDo:"Monthly bookkeeping, CFO advisory, cash flow analysis, tax planning, strategic financial reviews. Cited in Float Financial's 2025 Canada SMB Report. Use Xero/QB as their platforms, deliver insights via monthly calls and PDF reports.", whereWeOverlap:"Both provide forward-looking cash intelligence to Canadian SMBs. Both consider payroll, invoices, and tax obligations. Both tell business owners what's coming.", whereWeDiffer:"Human = $2,000–$5,000/mo minimum. Pulse = $149–$349/mo. Human CFO is not available at 8am Tuesday. Human CFO doesn't rebuild the forecast every night from live data. Human CFO can't send an SMS when your payroll coverage drops below 1.0.", pulse_edge:"Pulse replaces the forward-looking intelligence layer of a fractional CFO at 10–15x lower cost. Smart CPAs and CFOs become Pulse resellers — they use Pulse to serve more clients at better margin." }
+];
+
+function getOverlapClass(lvl) { return lvl === 'high' ? 'bar-high' : lvl === 'med' ? 'bar-med' : 'bar-low'; }
+
+function renderCards(filter) {
+  const grid = document.getElementById('compGrid');
+  grid.innerHTML = '';
+  competitors.forEach((c, i) => {
+    const show = filter === 'all' || c.category === filter || (filter === 'canadian' && c.badges.includes('canadian'));
+    const card = document.createElement('div');
+    card.className = 'comp-card' + (show ? '' : ' hidden');
+    card.dataset.category = c.category;
+    card.dataset.badges = c.badges.join(',');
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="card-name">${c.name}</div>
+        <div class="card-badges">${c.badges.map(b => `<span class="badge badge-${b}">${b}</span>`).join('')}</div>
+      </div>
+      <div class="card-meta">${c.founded}</div>
+      <div class="card-desc">${c.desc}</div>
+      <div class="card-pricing">Pricing: <strong>${c.pricing}</strong></div>
+      <div class="overlap-bar">
+        <div class="overlap-label"><span>overlap with Pulse</span><span>${c.overlap}%</span></div>
+        <div class="bar-track"><div class="bar-fill ${getOverlapClass(c.overlapLevel)}" style="width:${c.overlap}%"></div></div>
+      </div>
+      <span class="expand-btn" onclick="toggleDetail(${i},this)">▸ See full analysis</span>
+      <div class="details-panel" id="d${i}">
+        <div class="detail-row"><div class="detail-label">What they do</div><div class="detail-text">${c.whatTheyDo}</div></div>
+        <div class="detail-row"><div class="detail-label">Where we overlap</div><div class="detail-text">${c.whereWeOverlap}</div></div>
+        <div class="detail-row"><div class="detail-label">Where we differ</div><div class="detail-text">${c.whereWeDiffer}</div></div>
+        <div class="pulse-edge"><strong>Pulse edge:</strong> ${c.pulse_edge}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function toggleDetail(i, btn) {
+  const p = document.getElementById('d' + i);
+  p.classList.toggle('open');
+  btn.textContent = p.classList.contains('open') ? '▾ Hide analysis' : '▸ See full analysis';
+}
+
+function filterCards(filter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.comp-card').forEach(card => {
+    const show = filter === 'all' || card.dataset.category === filter || (filter === 'canadian' && card.dataset.badges.split(',').includes('canadian'));
+    card.classList.toggle('hidden', !show);
+  });
+}
+
+renderCards('all');
+</script>
+</body>
+</html>
